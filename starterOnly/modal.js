@@ -21,11 +21,93 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
-// close modal
+// CLOSE MODAL FORM
 function closeModal() {
   modalbg.style.display = "none";
 }
-
+// add event click to launch closeModal()
 cross.addEventListener('click', closeModal);
+
+// FORM
+
+const form = document.querySelector('form')
+const inputfirstName = document.querySelector('#first')
+const inputlastName = document.querySelector('#last')
+
+const inputEmail = document.querySelector('#email')
+const inputBirthDate = document.querySelector('#birthdate')
+const inputQuantity = document.querySelector('#quantity')
+
+
+// SUBMIT TIME
+
+form.addEventListener('submit', (event) => {
+  // prevent default action
+  event.preventDefault();
+
+  console.log(inputfirstName.value);
+  console.log(inputlastName.value);
+
+  console.log(inputEmail.value);
+  console.log(inputQuantity.value);
+  console.log(inputBirthDate.value);
+  
+  
+// FirstName
+  if (inputfirstName.value.length > 2) {
+    console.log('ok');
+    // isValid = true;?
+  }
+  else {
+    console.log('pas ok');
+    // isValid = false;?
+  }
+// LastName
+  if (inputlastName.value.length > 2) {
+    console.log('ok');
+  }
+  else {
+    console.log('pas ok');
+  }
+
+// MailForm  validation
+
+
+var validateMailForm = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if (inputEmail.value.match(validateMailForm)) {
+  console.log('mail ok');
+//   alert("Mail ID format is approved!");
+// document.mailForm.mailText.focus();
+// return true;
+} else {
+  console.log('mail pas boooonnn');
+// alert("Mail ID format is not approved!");
+// document.mailForm.mailText.focus();
+// return false;
+}
+
+// Birthdate validation
+
+// Quantity of tournament participation validation
+var validateQuantity = /^[0-9]/;
+
+if (inputQuantity.value.match(validateQuantity)) {
+  console.log('ok la quantitee');
+} else {
+  console.log('no no nooo la quantitee');
+}
+
+
+
+});
+
+
+
+
+
+
+
+
+
 
 
