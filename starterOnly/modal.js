@@ -38,6 +38,9 @@ const inputEmail = document.querySelector('#email')
 const inputBirthDate = document.querySelector('#birthdate')
 const inputQuantity = document.querySelector('#quantity')
 
+const inputLocations = document.getElementsByName('location')
+const inputAcceptTermsOfUses = document.querySelector('#checkbox1')
+const inputSignInNewsLetter = document.querySelector('#checkbox2')
 
 // SUBMIT TIME
 
@@ -51,8 +54,11 @@ form.addEventListener('submit', (event) => {
   console.log(inputEmail.value);
   console.log(inputQuantity.value);
   console.log(inputBirthDate.value);
-  
-  
+
+  console.log(inputLocations.value);
+  console.log(inputAcceptTermsOfUses.value);
+  console.log(inputSignInNewsLetter.value);
+
 // FirstName
   if (inputfirstName.value.length > 2) {
     console.log('ok');
@@ -96,6 +102,15 @@ if (inputQuantity.value.match(validateQuantity)) {
 } else {
   console.log('no no nooo la quantitee');
 }
+ // SignInNewsLetter
+
+ if(inputSignInNewsLetter.value === checked) {
+  console.log('ok tell me about it');
+} else {
+  console.log('do nothing');
+}
+
+
 
 
 
