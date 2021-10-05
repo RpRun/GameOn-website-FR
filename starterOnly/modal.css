@@ -108,7 +108,7 @@ main {
   padding-top: 0.5vw;
   padding-left: 2vw;
   padding-right: 2vw;
-  margin: 1px 20px 15px;
+  margin: 50px 20px 50px;
   border-radius: 2rem;
   text-align: justify;
 
@@ -405,7 +405,7 @@ input[data-error]::after {
   font-size: 16px;
 }
 .hero-section {
-  min-height: 93vh;
+  min-height: 52vh;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);

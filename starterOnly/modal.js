@@ -38,9 +38,11 @@ const inputEmail = document.querySelector('#email')
 const inputBirthDate = document.querySelector('#birthdate')
 const inputQuantity = document.querySelector('#quantity')
 
-const inputLocations = document.getElementsByName('location')
+const inputLocations = document.querySelector(':checked')
 const inputAcceptTermsOfUses = document.querySelector('#checkbox1')
 const inputSignInNewsLetter = document.querySelector('#checkbox2')
+
+
 
 // SUBMIT TIME
 
@@ -52,21 +54,25 @@ form.addEventListener('submit', (event) => {
   console.log(inputlastName.value);
 
   console.log(inputEmail.value);
-  console.log(inputQuantity.value);
+  
   console.log(inputBirthDate.value);
+  console.log(inputQuantity.value);
 
   console.log(inputLocations.value);
+
+
   console.log(inputAcceptTermsOfUses.value);
+
   console.log(inputSignInNewsLetter.value);
 
 // FirstName
   if (inputfirstName.value.length > 2) {
     console.log('ok');
-    // isValid = true;?
+    // isValid = true;
   }
   else {
     console.log('pas ok');
-    // isValid = false;?
+    // isValid = false;
   }
 // LastName
   if (inputlastName.value.length > 2) {
@@ -103,13 +109,13 @@ if (inputQuantity.value.match(validateQuantity)) {
   console.log('no no nooo la quantitee');
 }
  // SignInNewsLetter
-
- if(inputSignInNewsLetter.value === checked) {
-  console.log('ok tell me about it');
-} else {
-  console.log('do nothing');
-}
-
+ var elements = document.getElementsByName('location');
+ for (i=0;i<elements.length;i++) {
+   if(elements[i].value == "clean") {
+     elements[i].checked = true;
+     
+   }
+ }
 
 
 
