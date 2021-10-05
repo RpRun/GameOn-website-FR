@@ -12,6 +12,7 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const cross = document.querySelector(".close")
+const submit = document.querySelector(".btn-submit")
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -22,7 +23,7 @@ function launchModal() {
 }
 
 // CLOSE MODAL FORM
-function closeModal() {
+const closeModal = () => {
   modalbg.style.display = "none";
 }
 // add event click to launch closeModal()
@@ -37,8 +38,9 @@ const inputlastName = document.querySelector('#last')
 const inputEmail = document.querySelector('#email')
 const inputBirthDate = document.querySelector('#birthdate')
 const inputQuantity = document.querySelector('#quantity')
-
+//inputLocations = checkedRadios
 const inputLocations = document.querySelector(':checked')
+
 const inputAcceptTermsOfUses = document.querySelector('#checkbox1')
 const inputSignInNewsLetter = document.querySelector('#checkbox2')
 
@@ -49,6 +51,7 @@ const inputSignInNewsLetter = document.querySelector('#checkbox2')
 form.addEventListener('submit', (event) => {
   // prevent default action
   event.preventDefault();
+ 
 
   console.log(inputfirstName.value);
   console.log(inputlastName.value);
@@ -84,8 +87,7 @@ form.addEventListener('submit', (event) => {
 
 // MailForm  validation
 
-
-var validateMailForm = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const validateMailForm = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 if (inputEmail.value.match(validateMailForm)) {
   console.log('mail ok');
 //   alert("Mail ID format is approved!");
@@ -101,7 +103,7 @@ if (inputEmail.value.match(validateMailForm)) {
 // Birthdate validation
 
 // Quantity of tournament participation validation
-var validateQuantity = /^[0-9]/;
+const validateQuantity = /^[0-9]/;
 
 if (inputQuantity.value.match(validateQuantity)) {
   console.log('ok la quantitee');
@@ -109,20 +111,22 @@ if (inputQuantity.value.match(validateQuantity)) {
   console.log('no no nooo la quantitee');
 }
  // SignInNewsLetter
- var elements = document.getElementsByName('location');
- for (i=0;i<elements.length;i++) {
-   if(elements[i].value == "clean") {
-     elements[i].checked = true;
-     
-   }
+ const elements = document.getElementsByName('location');
+ for ( let i=0;i<elements.length;i++) {
+  //  if(elements[i].value == "clean") {
+  //    elements[i].checked = true;
+  //  }
+  console.log('mais pouet')
  }
-
-
-
 
 });
 
-
+// SUBMIT MODAL FORM
+const submitModal = () => {
+  console.log('modal submit')
+}
+// add event click to launch submitModal()
+  submit.addEventListener('click', submitModal);
 
 
 
