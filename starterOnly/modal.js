@@ -29,30 +29,30 @@ const closeModal = () => {
 // add event click to launch closeModal()
 cross.addEventListener('click', closeModal);
 
-// FORM
+// FORM SECTION
 
 const form = document.querySelector('form')
 const inputFirstName = document.querySelector('#first')
 const inputLastName = document.querySelector('#last')
-
 const inputEmail = document.querySelector('#email')
 const inputBirthDate = document.querySelector('#birthdate')
 const inputQuantity = document.querySelector('#quantity')
-//inputLocations = checkedRadios if  = document.querySelector(':checked') 
-const inputLocations = document.querySelector(':checked')
+
 
 const inputAcceptTermsOfUses = document.querySelector('#checkbox1')
+
 const inputSignInNewsLetter = document.querySelector('#checkbox2')
 
-// SUBMIT TIME
+
+// SUBMIT CHECKING
 
 form.addEventListener('submit', (event) => {
-  // prevent default action
+  // prevent form to be submitted 
   event.preventDefault();
  
   console.log(inputBirthDate.value);
-  console.log(inputAcceptTermsOfUses.value);
-  console.log(inputSignInNewsLetter.value);
+  // console.log(inputAcceptTermsOfUses.value);
+  // console.log(inputSignInNewsLetter.value);
 
 // FirstName
   if (inputFirstName.value.length > 2) {
@@ -60,7 +60,7 @@ form.addEventListener('submit', (event) => {
     // isValid = true;
   }
   else {
-    console.log('pas ok veuillez renseigner votre prénom');
+    console.log('Veuillez renseigner votre prénom');
     // isValid = false;
   }
 // LastName
@@ -68,10 +68,10 @@ form.addEventListener('submit', (event) => {
     console.log('ok le nom:', inputLastName.value);
   }
   else {
-    console.log('pas ok veuillez renseigner votre nom');
+    console.log('Veuillez renseigner un nom valide');
   }
 
-// MailForm  validation
+// MailForm  validation using Regular Expressions
 
 const validateMailForm = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 if (inputEmail.value.match(validateMailForm)) {
@@ -80,29 +80,48 @@ if (inputEmail.value.match(validateMailForm)) {
 // document.mailForm.mailText.focus();
 // return true;
 } else {
-  console.log('veuillez rentrer un mail valide');
+  console.log('Veuillez renseigner un mail valide');
 // alert("Mail ID format is not approved!");
 // document.mailForm.mailText.focus();
 // return false;
 }
 
-// Birthdate validation
+// Birthdate validation using Regular Expressions (Regex)
+
+const BirthDateIsValid = /^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;
+ if (inputBirthDate.value.match(BirthDateIsValid)) {
+   console.log('Date de naissance:', inputBirthDate.value);
+ } else {
+   console.log('date de naissance as bon');
+ }
 
 // Quantity of tournament participation validation
 const validateQuantity = /^[0-9]/;
 
 if (inputQuantity.value.match(validateQuantity)) {
-  console.log('ok la quantitee:', inputQuantity.value);
+  console.log('Nombre de participation(s):', inputQuantity.value);
 } else {
-  console.log('no no nooo la quantitee:', 'veuillez selectionner un nombre');
+  console.log( 'Participation aux précedents tournois:','veuillez selectionner un nombre');
 }
- // SignInNewsLetter
- const elements = document.getElementsByName('location');
- for (let i=0;i<elements.length;i++) {
-   if(elements[i].value == "clean") {
-     elements[i].checked = true;
+
+ // AcceptTermsOfUses
+
+ 
+
+
+
+
+
+
+
+
+ // inputLocations Radios
+ const inputLocations = document.getElementsByName('location');
+ for (let i=0;i<inputLocations.length;i++) {
+   if(inputLocations[i].value == "clean") {
+    inputLocations[i].checked = true;
    }
-  console.log(elements[i].checked, elements[i].value)
+  console.log(inputLocations[i].checked, inputLocations[i].value)
  }
 
 });
