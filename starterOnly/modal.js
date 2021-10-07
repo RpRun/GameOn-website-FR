@@ -35,9 +35,8 @@ const form = document.querySelector('form')
 const inputFirstName = document.querySelector('#first')
 const inputLastName = document.querySelector('#last')
 const inputEmail = document.querySelector('#email')
-const inputBirthDate = document.querySelector('#birthdate')
-const inputQuantity = document.querySelector('#quantity')
 
+const inputQuantity = document.querySelector('#quantity')
 
 const inputAcceptTermsOfUses = document.querySelector('#checkbox1')
 
@@ -50,9 +49,9 @@ form.addEventListener('submit', (event) => {
   // prevent form to be submitted 
   event.preventDefault();
  
-  console.log(inputBirthDate.value);
-  // console.log(inputAcceptTermsOfUses.value);
-  // console.log(inputSignInNewsLetter.value);
+  
+  console.log(inputAcceptTermsOfUses.value);
+  console.log(inputSignInNewsLetter.value);
 
 // FirstName
   if (inputFirstName.value.length > 2) {
@@ -74,6 +73,8 @@ form.addEventListener('submit', (event) => {
 // MailForm  validation using Regular Expressions
 
 const validateMailForm = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+
 if (inputEmail.value.match(validateMailForm)) {
   console.log('mail ok:', inputEmail.value);
 //   alert("Mail ID format is approved!");
@@ -86,14 +87,40 @@ if (inputEmail.value.match(validateMailForm)) {
 // return false;
 }
 
+
 // Birthdate validation using Regular Expressions (Regex)
 
-const BirthDateIsValid = /^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;
+
+const inputBirthDate = document.querySelector('#birthdate');
+
+BirthDateIsValid = /^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;
+
+// /^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/; 
  if (inputBirthDate.value.match(BirthDateIsValid)) {
-   console.log('Date de naissance:', inputBirthDate.value);
+   console.log('Date de naissance:' + inputBirthDate.value);
  } else {
    console.log('date de naissance pas bon');
  }
+
+// const checkDoB = () =>
+// function checkDoB () {
+
+    // regular expression to match required date format
+    
+    //  /^\d{4}\/\d{1,2}\/\d{1,2}$/;
+
+//     if(inputBirthDate.value != '' && !inputBirthDate.value.match(BirthDateIsValid)) {
+//       alert("Invalid date format: " + inputBirthDate.value);
+//       inputBirthDate.focus();
+//       return false;
+//     }
+//     alert("BOD OK");
+//     return true;
+//   }
+// checkDoB ();
+
+ console.log(inputBirthDate.value);
+
 
 // Quantity of tournament participation validation
 const validateQuantity = /^[0-9]/;
@@ -106,6 +133,17 @@ if (inputQuantity.value.match(validateQuantity)) {
 
  // AcceptTermsOfUses
 
+
+
+// for (let i = 0; i < inputAcceptTermsOfUses.length; i++) {
+//   if(inputAcceptTermsOfUses[i].value == "clean") {
+//     inputAcceptTermsOfUses[i].checked = true;
+//     return true
+//    } else {
+//      return false
+//    }
+  
+// }
  
 
 
