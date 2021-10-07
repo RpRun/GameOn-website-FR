@@ -476,6 +476,11 @@ input[data-error]::after {
   display: none;
 }
 
+/*Hide the error-messages*/
+.error {
+  display: none;
+}
+
 footer {
   padding-left: 2vw;
   padding-right: 2vw;

@@ -63,84 +63,106 @@ let userValue = {}
  |/|/| |S|U|B|M|I|T| |C|H|E|C|K|I|N|G|
  +-+-+ +-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+
 */
-
 form.addEventListener('submit', (event) => {
-
   // prevent form to be submitted 
   event.preventDefault();
- 
+
+  userValue.firstName = inputFirstName.value
+  userValue.lastName = inputLastName.value
+  userValue.email = inputEmail.value
+  userValue.birthDate = inputBirthDate.value
+  userValue.quantity = inputQuantity.value
+
+  // inputLocations Checkboxes
+  let cities = []
+  for (let i = 0; i < inputLocations.length; i++) {
+    if (inputLocations[i].checked) {
+      cities.push(inputLocations[i].value)
+    }
+  }
+  userValue.cities = cities
+
+  // inputTermsOfUses
+  userValue.cgu = inputAcceptTermsOfUses.checked
+
+  // userValue.newsLetter
+
+  userValue.newsLetter = inputSignInNewsLetter.checked
+
+
+  checkInput(userValue)
+});
+
+const checkInput = (rolala) => {
+  console.log('on a un truc là:', rolala);
+
 
   // FirstName
+  const errorFirst = document.querySelector('.error-first')
   if (inputFirstName.value.length > 2) {
-    userValue.firstName = inputFirstName.value
-  }
-  else {
-    console.log('Veuillez renseigner votre prénom');
+    errorFirst.style.display = 'none'
+  } else {
+    errorFirst.style.display = 'block'
   }
 
 
   // LastName
+  const errorLast = document.querySelector('.error-last')
   if (inputLastName.value.length > 2) {
-   userValue.lastName = inputLastName.value
+    errorLast.style.display = 'none'
+  } else {
+    errorLast.style.display = 'block'
   }
-  else {
-    console.log('Veuillez renseigner un nom valide');
+
+
+  // MailForm  validation using Regular Expressions
+  const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  const errorEmail = document.querySelector('.error-eMail')
+  if (inputEmail.value.match(regex)) {
+    errorEmail.style.display = 'none'
+  } else {
+    errorEmail.style.display = 'block'
   }
 
 
-// MailForm  validation using Regular Expressions
-const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-if (inputEmail.value.match(regex)) {
-  userValue.email = inputEmail.value
-//   alert("Mail ID format is approved!");
-// document.mailForm.mailText.focus();
-// return true;
-} else {
-  console.log('Veuillez renseigner un mail valide');
-// alert("Mail ID format is not approved!");
-// document.mailForm.mailText.focus();
-// return false;
-}
-
-
-// Birthdate validation 
- if (inputBirthDate.value.length>0) {
-   userValue.birthDate = inputBirthDate.value
- } else {
-   console.log('Veuillez renseigner votre date de naissance');
- }
-
-
-// Quantity of tournament participation validation
-if (inputQuantity.value>0||inputQuantity.value<100) {
-  userValue.quantity = inputQuantity.value
-} else {
-  console.log( 'Participation aux précédents tournois:','veuillez selectionner un nombre');
-}
-
-// inputLocations Checkboxes
-let cities = []
-for (let i=0;i<inputLocations.length;i++) {
-  if(inputLocations[i].checked) {
-    cities.push(inputLocations[i].value)
+  // Birthdate validation 
+  const errorDoB = document.querySelector('.error-DoB')
+  if (inputBirthDate.value.length > 0) {
+    errorDoB.style.display = 'none'
+  } else {
+    errorDoB.style.display = 'block'
   }
+
+
+  // Quantity of tournament participation validation
+  const errorQuantity = document.querySelector('.error-Quantity')
+  if (inputQuantity.value>0||inputQuantity.value<100) {
+    errorQuantity.style.display = 'none'
+  } else {
+    errorQuantity.style.display = 'block'
+  }
+
+
+  // inputTermsOfUses
+  const errorAccept = document.querySelector('.error-cgu')
+  if (inputAcceptTermsOfUses.checked) { 
+    errorAccept.style.display = 'none'
+  } else {
+    errorAccept.style.display = 'block'
+  }
+
+
+  // inputSignInNewsLetter
+  // if (inputSignInNewsLetter.checked) {
+  //   userValue.newsLetter = true
+  // } else {
+  //   userValue.newsLetter = false
+  // }
+
+
 }
-userValue.cities = cities
 
- // inputTermsOfUses
-if (inputAcceptTermsOfUses.checked) {
-  userValue.cgu = true 
-} else {
-  userValue.cgu = false
-}
 
-checkInput (userValue)
-
-});
-
-const checkInput = (olala) => {
-  console.log('on a un truc là:', olala);
-}
 
 
 // const checkDoB = () => 
@@ -160,8 +182,3 @@ const checkInput = (olala) => {
 // }
 // // add event click to launch submitModal()
 //   submit.addEventListener('click', submitModal);
-
-
-
-
-
