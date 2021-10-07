@@ -50,8 +50,7 @@ form.addEventListener('submit', (event) => {
   event.preventDefault();
  
   
-  console.log(inputAcceptTermsOfUses.value);
-  console.log(inputSignInNewsLetter.value);
+  
 
 // FirstName
   if (inputFirstName.value.length > 2) {
@@ -133,8 +132,8 @@ if (inputQuantity.value.match(validateQuantity)) {
 
  // AcceptTermsOfUses
 
-
-
+ 
+ 
 // for (let i = 0; i < inputAcceptTermsOfUses.length; i++) {
 //   if(inputAcceptTermsOfUses[i].value == "clean") {
 //     inputAcceptTermsOfUses[i].checked = true;
@@ -142,7 +141,18 @@ if (inputQuantity.value.match(validateQuantity)) {
 //    } else {
 //      return false
 //    }
-  
+if (inputAcceptTermsOfUses.checked) 
+console.log('name', inputAcceptTermsOfUses.value);
+// return true
+// } else {
+//   console.log('veuillez accepter les conditions dutilisation', inputAcceptTermsOfUses.value);
+//   return false
+// }
+
+
+
+
+console.log(inputSignInNewsLetter.value);
 // }
  
 
