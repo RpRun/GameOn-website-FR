@@ -92,7 +92,7 @@ const BirthDateIsValid = /^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;
  if (inputBirthDate.value.match(BirthDateIsValid)) {
    console.log('Date de naissance:', inputBirthDate.value);
  } else {
-   console.log('date de naissance as bon');
+   console.log('date de naissance pas bon');
  }
 
 // Quantity of tournament participation validation
