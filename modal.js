@@ -136,33 +136,43 @@ const checkInput = (rolala) => {
 
   // Quantity of tournament participation validation
   const errorQuantity = document.querySelector('.error-Quantity')
-  if (inputQuantity.value>0||inputQuantity.value<100) {
-    errorQuantity.style.display = 'none'
-  } else {
+  if (inputQuantity.value == '') {
     errorQuantity.style.display = 'block'
+    
+  } else {
+    errorQuantity.style.display = 'none'
   }
+
+
+  // InputLocations (cities)
+  const errorLocation = document.querySelector('.error-Location')
+    if (inputQuantity.value >= 1 && (inputLocations.value == undefined)) {
+        errorLocation.style.display = 'block'
+    } else {
+        errorLocation.style.display = 'none'
+      }
 
 
   // inputTermsOfUses
   const errorAccept = document.querySelector('.error-cgu')
-  if (inputAcceptTermsOfUses.checked) { 
+  if (inputAcceptTermsOfUses.checked ) { 
     errorAccept.style.display = 'none'
   } else {
     errorAccept.style.display = 'block'
   }
 
 
-  // inputSignInNewsLetter
+ 
+
+
+}
+
+ // inputSignInNewsLetter
   // if (inputSignInNewsLetter.checked) {
   //   userValue.newsLetter = true
   // } else {
   //   userValue.newsLetter = false
   // }
-
-
-}
-
-
 
 
 // const checkDoB = () => 
