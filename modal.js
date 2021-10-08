@@ -120,6 +120,7 @@ const checkInput = (rolala) => {
   const errorEmail = document.querySelector('.error-eMail')
   if (inputEmail.value.match(regex)) {
     errorEmail.style.display = 'none'
+    // inputEmail.focus();
   } else {
     errorEmail.style.display = 'block'
   }
@@ -129,6 +130,7 @@ const checkInput = (rolala) => {
   const errorDoB = document.querySelector('.error-DoB')
   if (inputBirthDate.value.length > 0) {
     errorDoB.style.display = 'none'
+    // inputBirthDate.focus();
   } else {
     errorDoB.style.display = 'block'
   }
@@ -136,7 +138,7 @@ const checkInput = (rolala) => {
 
   // Quantity of tournament participation validation
   const errorQuantity = document.querySelector('.error-Quantity')
-  if (inputQuantity.value == '') {
+  if ((inputQuantity.value == '') || (userValue.cities.length>inputQuantity.value)) {
     errorQuantity.style.display = 'block'
     
   } else {
