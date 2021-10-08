@@ -143,13 +143,15 @@ const checkInput = (rolala) => {
     errorQuantity.style.display = 'none'
   }
 
-
-  // InputLocations (cities)
+  
+  // InputLocations (cities) error displayed only if there was a participation quantified before
   const errorLocation = document.querySelector('.error-Location')
-    if (inputQuantity.value >= 1 && (inputLocations.value == undefined)) {
+    if ((userValue.cities.length<1) && (inputQuantity.value > 0 )) {
         errorLocation.style.display = 'block'
+        console.log(10)
     } else {
         errorLocation.style.display = 'none'
+        console.log ('mais pouet bordel')
       }
 
 
