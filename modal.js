@@ -120,9 +120,13 @@ const checkInput = (rolala) => {
   const errorEmail = document.querySelector('.error-eMail')
   if (inputEmail.value.match(regex)) {
     errorEmail.style.display = 'none'
-    // inputEmail.focus();
+    
   } else {
     errorEmail.style.display = 'block'
+    // document.querySelector('.text-control').focus()
+    // Ne FONCTIONNE PÄSSS
+    // .style.background = '#e54858';
+    
   }
 
 
@@ -130,7 +134,7 @@ const checkInput = (rolala) => {
   const errorDoB = document.querySelector('.error-DoB')
   if (inputBirthDate.value.length > 0) {
     errorDoB.style.display = 'none'
-    // inputBirthDate.focus();
+    
   } else {
     errorDoB.style.display = 'block'
   }
@@ -165,10 +169,20 @@ const checkInput = (rolala) => {
     errorAccept.style.display = 'block'
   }
 
+}
+/*
+ +-+-+ +-+-+-+-+-+-+-+-+ +-+-+-+-+
+ |/|/| |V|A|L|I|D|A|T|E| |F|O|R|M|
+ +-+-+ +-+-+-+-+-+-+-+-+ +-+-+-+-+
+*/
 
- 
-
-
+const validateForm = (array, rolala) => {
+  for (let element of array) {
+    if(element === rolala) {
+      return true;
+    }
+  }
+  return false;
 }
 
  // inputSignInNewsLetter
