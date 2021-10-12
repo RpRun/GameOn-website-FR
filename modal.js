@@ -103,6 +103,8 @@ const checkInput = (rolala) => {
     errorFirst.style.display = 'none'
   } else {
     errorFirst.style.display = 'block'
+    inputFirstName.focus();
+    inputFirstName.style.border = '2px solid #e54858'
   }
 
 
@@ -112,6 +114,8 @@ const checkInput = (rolala) => {
     errorLast.style.display = 'none'
   } else {
     errorLast.style.display = 'block'
+    inputLastName.focus();
+    inputLastName.style.border = '2px solid #e54858'
   }
 
 
@@ -123,9 +127,9 @@ const checkInput = (rolala) => {
     
   } else {
     errorEmail.style.display = 'block'
-    // document.querySelector('.text-control').focus()
-    // Ne FONCTIONNE PÄSSS
-    // .style.background = '#e54858';
+    inputEmail.focus();
+    inputEmail.style.border = '2px solid #e54858'
+
     
   }
 
@@ -137,6 +141,8 @@ const checkInput = (rolala) => {
     
   } else {
     errorDoB.style.display = 'block'
+    inputBirthDate.focus();
+    inputBirthDate.style.border = '2px solid #e54858'
   }
 
 
@@ -144,6 +150,8 @@ const checkInput = (rolala) => {
   const errorQuantity = document.querySelector('.error-Quantity')
   if ((inputQuantity.value == '') || (userValue.cities.length>inputQuantity.value)) {
     errorQuantity.style.display = 'block'
+    inputQuantity.focus();
+    inputQuantity.style.border = '2px solid #e54858'
     
   } else {
     errorQuantity.style.display = 'none'
@@ -154,7 +162,6 @@ const checkInput = (rolala) => {
   const errorLocation = document.querySelector('.error-Location')
     if ((userValue.cities.length<1) && (inputQuantity.value > 0 )) {
         errorLocation.style.display = 'block'
-        console.log(10)
     } else {
         errorLocation.style.display = 'none'
         console.log ('mais pouet bordel')
@@ -167,6 +174,7 @@ const checkInput = (rolala) => {
     errorAccept.style.display = 'none'
   } else {
     errorAccept.style.display = 'block'
+    
   }
 
 }
@@ -176,14 +184,7 @@ const checkInput = (rolala) => {
  +-+-+ +-+-+-+-+-+-+-+-+ +-+-+-+-+
 */
 
-const validateForm = (array, rolala) => {
-  for (let element of array) {
-    if(element === rolala) {
-      return true;
-    }
-  }
-  return false;
-}
+
 
  // inputSignInNewsLetter
   // if (inputSignInNewsLetter.checked) {
