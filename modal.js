@@ -101,6 +101,7 @@ const checkInput = (rolala) => {
   const errorFirst = document.querySelector('.error-first')
   if (inputFirstName.value.length > 2) {
     errorFirst.style.display = 'none'
+    inputFirstName.style.border = 'none'
   } else {
     errorFirst.style.display = 'block'
     inputFirstName.focus();
@@ -112,6 +113,7 @@ const checkInput = (rolala) => {
   const errorLast = document.querySelector('.error-last')
   if (inputLastName.value.length > 2) {
     errorLast.style.display = 'none'
+    inputLastName.style.border = 'none'
   } else {
     errorLast.style.display = 'block'
     inputLastName.focus();
@@ -124,6 +126,7 @@ const checkInput = (rolala) => {
   const errorEmail = document.querySelector('.error-eMail')
   if (inputEmail.value.match(regex)) {
     errorEmail.style.display = 'none'
+    inputEmail.style.border = 'none'
     
   } else {
     errorEmail.style.display = 'block'
@@ -138,6 +141,7 @@ const checkInput = (rolala) => {
   const errorDoB = document.querySelector('.error-DoB')
   if (inputBirthDate.value.length > 0) {
     errorDoB.style.display = 'none'
+    inputBirthDate.style.border = 'none'
     
   } else {
     errorDoB.style.display = 'block'
@@ -155,6 +159,7 @@ const checkInput = (rolala) => {
     
   } else {
     errorQuantity.style.display = 'none'
+    inputQuantity.style.border = 'none'
   }
 
   
