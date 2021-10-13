@@ -31,9 +31,20 @@ const inputQuantity = document.querySelector('#quantity')
 const inputLocations = document.getElementsByName('location');
 const inputAcceptTermsOfUses = document.querySelector('#checkbox1')
 const inputSignInNewsLetter = document.querySelector('#checkbox2')
-
 const thankClosing = document.querySelector(".thank-closing")
 const submit = document.querySelector(".btn-submit")
+/*
+ +-+-+-+ +-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+
+ |D|O|M| |E|l|e|m|e|n|t|s| |e|r|r|o|r|s|
+ +-+-+-+ +-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+
+*/
+const errorFirst = document.querySelector('.error-first')
+const errorLast = document.querySelector('.error-last')
+const errorEmail = document.querySelector('.error-eMail')
+const errorDoB = document.querySelector('.error-DoB')
+const errorQuantity = document.querySelector('.error-Quantity')
+const errorLocation = document.querySelector('.error-Location')
+const errorCgu = document.querySelector('.error-cgu')
 
 /*
  +-+-+-+-+-+
@@ -41,17 +52,12 @@ const submit = document.querySelector(".btn-submit")
  +-+-+-+-+-+
 */
 const launchModal = () => {
-
   modalbg.style.display = "block";
-
 }
+
 const closeModal = () => {
   modalbg.style.display = "none";
 }
-// const validate = () => {
-//   form.style.display = "none";
-//   thankClosing.style.display = "block";
-// }
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -59,10 +65,8 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 // add event click to launch closeModal()
 cross.addEventListener('click', closeModal);
 
-
-
-
-
+// MailForm  validation using Regular Expressions
+const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 /*
  +-+-+ +-+-+-+-+ +-+-+-+-+-+-+-+
@@ -118,14 +122,12 @@ const checkInput = () => {
   console.log('on a un truc là:', userValue);
 
   // FirstName
-  const errorFirst = document.querySelector('.error-first')
-
-  function checkErrorFirst() {
+  function checkFirstName() {
     if (inputFirstName.value.length > 2) {
       errorFirst.style.display = 'none'
       inputFirstName.style.border = 'none'
       return true;
-  
+
     } else {
       errorFirst.style.display = 'block'
       inputFirstName.focus();
@@ -134,121 +136,117 @@ const checkInput = () => {
     }
 
   }
-  
+
   // LastName
-  const errorLast = document.querySelector('.error-last')
+  const checkLastName = () => {
+    if (inputLastName.value.length > 2) {
+      errorLast.style.display = 'none'
+      inputLastName.style.border = 'none'
+      return true;
 
- const checkErrorLast = () => {
-  if (inputLastName.value.length > 2) {
-    errorLast.style.display = 'none'
-    inputLastName.style.border = 'none'
-    return true;
-
-  } else {
-    errorLast.style.display = 'block'
-    inputLastName.focus();
-    inputLastName.style.border = '2px solid #e54858'
-    return false;
-  }
- }
-
- // FORM CHECK ALL FIELDS
- const checkAllFields = () => {
-   if(checkErrorFirst() === true && checkErrorLast() === true)
-   {
-     return true;
-   }
-   else {
-     return false;
-   }
- }
-
- // FORM SUBMIT
-
- if (checkAllFields() == true ) {
-  form.style.display = "none";
-  thankClosing.style.display = "block";
-  form.reset();
- }
- 
-//   
-  
-
-
-  // MailForm  validation using Regular Expressions
-  const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  const errorEmail = document.querySelector('.error-eMail')
-  if (inputEmail.value.match(regex)) {
-    errorEmail.style.display = 'none'
-    inputEmail.style.border = 'none'
-    return true;
-
-  } else {
-    errorEmail.style.display = 'block'
-    inputEmail.focus();
-    inputEmail.style.border = '2px solid #e54858'
+    } else {
+      errorLast.style.display = 'block'
+      inputLastName.focus();
+      inputLastName.style.border = '2px solid #e54858'
+      return false;
+    }
   }
 
+// MailForm 
+  const checkEmail = () => {
+    if (inputEmail.value.match(regex)) {
+      errorEmail.style.display = 'none'
+      inputEmail.style.border = 'none'
+      return true;
+
+    } else {
+      errorEmail.style.display = 'block'
+      inputEmail.focus();
+      inputEmail.style.border = '2px solid #e54858'
+    }
+  }
 
   // Birthdate validation 
-  const errorDoB = document.querySelector('.error-DoB')
-  if (inputBirthDate.value.length > 0) {
-    errorDoB.style.display = 'none'
-    inputBirthDate.style.border = 'none'
-    return true;
+  const checkDoB = () => {
+    if (inputBirthDate.value.length > 0) {
+      errorDoB.style.display = 'none'
+      inputBirthDate.style.border = 'none'
+      return true;
 
-  } else {
-    errorDoB.style.display = 'block'
-    inputBirthDate.focus();
-    inputBirthDate.style.border = '2px solid #e54858'
+    } else {
+      errorDoB.style.display = 'block'
+      inputBirthDate.focus();
+      inputBirthDate.style.border = '2px solid #e54858'
+    }
   }
 
 
   // Quantity of tournament participation validation
-  const errorQuantity = document.querySelector('.error-Quantity')
-  if ((inputQuantity.value == '') || (userValue.cities.length > inputQuantity.value)) {
-    errorQuantity.style.display = 'block'
-    inputQuantity.focus();
-    inputQuantity.style.border = '2px solid #e54858'
+  const checkTournaments = () => {
+    if ((inputQuantity.value == '') || (userValue.cities.length > inputQuantity.value)) {
+      errorQuantity.style.display = 'block'
+      inputQuantity.focus();
+      inputQuantity.style.border = '2px solid #e54858'
 
-  } else {
-    errorQuantity.style.display = 'none'
-    inputQuantity.style.border = 'none'
-    return true;
+    } else {
+      errorQuantity.style.display = 'none'
+      inputQuantity.style.border = 'none'
+      return true;
+    }
   }
 
 
   // InputLocations (cities) error displayed only if there was a participation quantified before
-  const errorLocation = document.querySelector('.error-Location')
-  if ((userValue.cities.length < 1) && (inputQuantity.value > 0)) {
-    errorLocation.style.display = 'block'
-    
-    
-  } else {
-    errorLocation.style.display = 'none'
-    return true
+  const checkLocation = () => {
+    if ((userValue.cities.length < 1) && (inputQuantity.value > 0)) {
+      errorLocation.style.display = 'block'
+    } else {
+      errorLocation.style.display = 'none'
+      return true
+    }
   }
+
 
   // inputTermsOfUses
-  const errorCgu = document.querySelector('.error-cgu')
-  if (inputAcceptTermsOfUses.checked) {
-    errorCgu.style.display = 'none'
-    return true;
-  } else {
-    errorCgu.style.display = 'block'
-    return false;
-
+  
+  const checkCgu = () => {
+    if (inputAcceptTermsOfUses.checked) {
+      errorCgu.style.display = 'none'
+      return true;
+    } else {
+      errorCgu.style.display = 'block'
+      return false;
+    }
   }
 
-}
-/*
+  /*
  +-+-+ +-+-+-+-+-+-+-+-+ +-+-+-+-+
  |/|/| |V|A|L|I|D|A|T|E| |F|O|R|M|
  +-+-+ +-+-+-+-+-+-+-+-+ +-+-+-+-+
 */
 
-// // SUBMIT MODAL FORM
-// const validate = () => {
-// let errorCgu = true 
-//   console.log('modal submitted')
-//  }
+  // FORM CHECK ALL FIELDS
+  const checkAllFields = () => {
+    if (checkFirstName() === true &&
+      checkLastName() === true &&
+      checkEmail() === true &&
+      checkDoB() === true &&
+      checkTournaments() === true &&
+      checkLocation() === true &&
+      checkCgu() === true) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  
+  // FORM SUBMIT
+  if (checkAllFields() == true) {
+    form.style.display = "none";
+    thankClosing.style.display = "block";
+    form.reset();
+  }
+
+
+}
