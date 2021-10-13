@@ -41,9 +41,9 @@ const submit = document.querySelector(".btn-submit")
  +-+-+-+-+-+
 */
 const launchModal = () => {
- 
+
   modalbg.style.display = "block";
-  
+
 }
 const closeModal = () => {
   modalbg.style.display = "none";
@@ -79,7 +79,7 @@ let userValue = {}
 form.addEventListener('submit', (event) => {
   // prevent form to be submitted 
   event.preventDefault();
-  
+
 
   userValue.firstName = inputFirstName.value
   userValue.lastName = inputLastName.value
@@ -107,34 +107,72 @@ form.addEventListener('submit', (event) => {
   checkInput(userValue)
 });
 
-const checkInput = (rolala) => {
-  console.log('on a un truc là:', rolala);
+/*
+ +-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+
+ |C|H|E|C|K|I|N|G| |E|R|R|O|R|S|
+ +-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+
+*/
 
+
+const checkInput = () => {
+  console.log('on a un truc là:', userValue);
 
   // FirstName
   const errorFirst = document.querySelector('.error-first')
-  if (inputFirstName.value.length > 2) {
-    errorFirst.style.display = 'none'
-    inputFirstName.style.border = 'none'
-    
-  } else {
-    errorFirst.style.display = 'block'
-    inputFirstName.focus();
-    inputFirstName.style.border = '2px solid #e54858'
-    
+
+  function checkErrorFirst() {
+    if (inputFirstName.value.length > 2) {
+      errorFirst.style.display = 'none'
+      inputFirstName.style.border = 'none'
+      return true;
+  
+    } else {
+      errorFirst.style.display = 'block'
+      inputFirstName.focus();
+      inputFirstName.style.border = '2px solid #e54858'
+      return false;
+    }
+
   }
-
-
+  
   // LastName
   const errorLast = document.querySelector('.error-last')
+
+ const checkErrorLast = () => {
   if (inputLastName.value.length > 2) {
     errorLast.style.display = 'none'
     inputLastName.style.border = 'none'
+    return true;
+
   } else {
     errorLast.style.display = 'block'
     inputLastName.focus();
     inputLastName.style.border = '2px solid #e54858'
+    return false;
   }
+ }
+
+ // FORM CHECK ALL FIELDS
+ const checkAllFields = () => {
+   if(checkErrorFirst() === true && checkErrorLast() === true)
+   {
+     return true;
+   }
+   else {
+     return false;
+   }
+ }
+
+ // FORM SUBMIT
+
+ if (checkAllFields() == true ) {
+  form.style.display = "none";
+  thankClosing.style.display = "block";
+  form.reset();
+ }
+ 
+//   
+  
 
 
   // MailForm  validation using Regular Expressions
@@ -143,13 +181,12 @@ const checkInput = (rolala) => {
   if (inputEmail.value.match(regex)) {
     errorEmail.style.display = 'none'
     inputEmail.style.border = 'none'
-    
+    return true;
+
   } else {
     errorEmail.style.display = 'block'
     inputEmail.focus();
     inputEmail.style.border = '2px solid #e54858'
-
-    
   }
 
 
@@ -158,7 +195,8 @@ const checkInput = (rolala) => {
   if (inputBirthDate.value.length > 0) {
     errorDoB.style.display = 'none'
     inputBirthDate.style.border = 'none'
-    
+    return true;
+
   } else {
     errorDoB.style.display = 'block'
     inputBirthDate.focus();
@@ -168,34 +206,38 @@ const checkInput = (rolala) => {
 
   // Quantity of tournament participation validation
   const errorQuantity = document.querySelector('.error-Quantity')
-  if ((inputQuantity.value == '') || (userValue.cities.length>inputQuantity.value)) {
+  if ((inputQuantity.value == '') || (userValue.cities.length > inputQuantity.value)) {
     errorQuantity.style.display = 'block'
     inputQuantity.focus();
     inputQuantity.style.border = '2px solid #e54858'
-    
+
   } else {
     errorQuantity.style.display = 'none'
     inputQuantity.style.border = 'none'
+    return true;
   }
 
-  
+
   // InputLocations (cities) error displayed only if there was a participation quantified before
   const errorLocation = document.querySelector('.error-Location')
-    if ((userValue.cities.length<1) && (inputQuantity.value > 0 )) {
-        errorLocation.style.display = 'block'
-    } else {
-        errorLocation.style.display = 'none'
-        console.log ('mais pouet bordel')
-      }
-
+  if ((userValue.cities.length < 1) && (inputQuantity.value > 0)) {
+    errorLocation.style.display = 'block'
+    
+    
+  } else {
+    errorLocation.style.display = 'none'
+    return true
+  }
 
   // inputTermsOfUses
   const errorCgu = document.querySelector('.error-cgu')
-  if (inputAcceptTermsOfUses.checked ) { 
+  if (inputAcceptTermsOfUses.checked) {
     errorCgu.style.display = 'none'
+    return true;
   } else {
     errorCgu.style.display = 'block'
-    
+    return false;
+
   }
 
 }
@@ -205,28 +247,8 @@ const checkInput = (rolala) => {
  +-+-+ +-+-+-+-+-+-+-+-+ +-+-+-+-+
 */
 
-
-
- // inputSignInNewsLetter
-  // if (inputSignInNewsLetter.checked) {
-  //   userValue.newsLetter = true
-  // } else {
-  //   userValue.newsLetter = false
-  // }
-
-
-// const checkDoB = () => 
-//     if(inputBirthDate.value != '' && !inputBirthDate.value.match(BirthDateIsValid)) 
-//       alert("Invalid date format: " + inputBirthDate.value);
-//       inputBirthDate.focus();
-//       return false;
-//     
-//     alert("BOD OK");
-//     return true;
-
-// checkDoB ();
-
-// SUBMIT MODAL FORM
-// const submitModal = () => {
-//   console.log('modal submit')
-// }
+// // SUBMIT MODAL FORM
+// const validate = () => {
+// let errorCgu = true 
+//   console.log('modal submitted')
+//  }
