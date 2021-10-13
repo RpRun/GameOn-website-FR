@@ -33,6 +33,7 @@ const inputAcceptTermsOfUses = document.querySelector('#checkbox1')
 const inputSignInNewsLetter = document.querySelector('#checkbox2')
 const thankClosing = document.querySelector(".thank-closing")
 const submit = document.querySelector(".btn-submit")
+
 /*
  +-+-+-+ +-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+
  |D|O|M| |E|l|e|m|e|n|t|s| |e|r|r|o|r|s|
@@ -116,10 +117,8 @@ form.addEventListener('submit', (event) => {
  |C|H|E|C|K|I|N|G| |E|R|R|O|R|S|
  +-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+
 */
-
-
 const checkInput = () => {
-  console.log('on a un truc là:', userValue);
+  // console.log('on a un truc là:', userValue);
 
   // FirstName
   function checkFirstName() {
@@ -133,6 +132,7 @@ const checkInput = () => {
       inputFirstName.focus();
       inputFirstName.style.border = '2px solid #e54858'
       return false;
+      // false est il necessaire et pourquoi?
     }
 
   }
@@ -152,7 +152,7 @@ const checkInput = () => {
     }
   }
 
-// MailForm 
+  // MailForm 
   const checkEmail = () => {
     if (inputEmail.value.match(regex)) {
       errorEmail.style.display = 'none'
@@ -163,6 +163,7 @@ const checkInput = () => {
       errorEmail.style.display = 'block'
       inputEmail.focus();
       inputEmail.style.border = '2px solid #e54858'
+      return false
     }
   }
 
@@ -177,6 +178,7 @@ const checkInput = () => {
       errorDoB.style.display = 'block'
       inputBirthDate.focus();
       inputBirthDate.style.border = '2px solid #e54858'
+      return false
     }
   }
 
@@ -187,6 +189,7 @@ const checkInput = () => {
       errorQuantity.style.display = 'block'
       inputQuantity.focus();
       inputQuantity.style.border = '2px solid #e54858'
+      return false
 
     } else {
       errorQuantity.style.display = 'none'
@@ -200,6 +203,7 @@ const checkInput = () => {
   const checkLocation = () => {
     if ((userValue.cities.length < 1) && (inputQuantity.value > 0)) {
       errorLocation.style.display = 'block'
+      return false
     } else {
       errorLocation.style.display = 'none'
       return true
@@ -208,7 +212,7 @@ const checkInput = () => {
 
 
   // inputTermsOfUses
-  
+
   const checkCgu = () => {
     if (inputAcceptTermsOfUses.checked) {
       errorCgu.style.display = 'none'
@@ -218,6 +222,7 @@ const checkInput = () => {
       return false;
     }
   }
+
 
   /*
  +-+-+ +-+-+-+-+-+-+-+-+ +-+-+-+-+
@@ -240,7 +245,7 @@ const checkInput = () => {
     }
   }
 
-  
+
   // FORM SUBMIT
   if (checkAllFields() == true) {
     form.style.display = "none";

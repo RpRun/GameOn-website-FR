@@ -397,6 +397,7 @@ input[data-error]::after {
 */
 .thank-closing {
   display: none;
+  text-align: center;
 }
 
 .select-items div:hover,
@@ -502,7 +503,7 @@ input[data-error]::after {
 */
 .error {
   display: none;
-  color:#fe142f ;
+  color: #fe142f;
   font-size: 0.8rem;
 }
 
@@ -606,6 +607,7 @@ footer {
     display: block;
     /* margin-top: -15px; */
   }
+
   .hero-headline {
     font-size: 2.5rem;
   }
