@@ -31,6 +31,8 @@ const inputQuantity = document.querySelector('#quantity')
 const inputLocations = document.getElementsByName('location');
 const inputAcceptTermsOfUses = document.querySelector('#checkbox1')
 const inputSignInNewsLetter = document.querySelector('#checkbox2')
+
+const thankClosing = document.querySelector(".thank-closing")
 const submit = document.querySelector(".btn-submit")
 
 /*
@@ -39,17 +41,28 @@ const submit = document.querySelector(".btn-submit")
  +-+-+-+-+-+
 */
 const launchModal = () => {
+ 
   modalbg.style.display = "block";
+  
 }
 const closeModal = () => {
   modalbg.style.display = "none";
 }
+// const validate = () => {
+//   form.style.display = "none";
+//   thankClosing.style.display = "block";
+// }
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // add event click to launch closeModal()
 cross.addEventListener('click', closeModal);
+
+
+
+
+
 
 /*
  +-+-+ +-+-+-+-+ +-+-+-+-+-+-+-+
@@ -66,6 +79,7 @@ let userValue = {}
 form.addEventListener('submit', (event) => {
   // prevent form to be submitted 
   event.preventDefault();
+  
 
   userValue.firstName = inputFirstName.value
   userValue.lastName = inputLastName.value
@@ -102,10 +116,12 @@ const checkInput = (rolala) => {
   if (inputFirstName.value.length > 2) {
     errorFirst.style.display = 'none'
     inputFirstName.style.border = 'none'
+    
   } else {
     errorFirst.style.display = 'block'
     inputFirstName.focus();
     inputFirstName.style.border = '2px solid #e54858'
+    
   }
 
 
@@ -174,11 +190,11 @@ const checkInput = (rolala) => {
 
 
   // inputTermsOfUses
-  const errorAccept = document.querySelector('.error-cgu')
+  const errorCgu = document.querySelector('.error-cgu')
   if (inputAcceptTermsOfUses.checked ) { 
-    errorAccept.style.display = 'none'
+    errorCgu.style.display = 'none'
   } else {
-    errorAccept.style.display = 'block'
+    errorCgu.style.display = 'block'
     
   }
 
@@ -214,5 +230,3 @@ const checkInput = (rolala) => {
 // const submitModal = () => {
 //   console.log('modal submit')
 // }
-// // add event click to launch submitModal()
-//   submit.addEventListener('click', submitModal);
