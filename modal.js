@@ -34,6 +34,8 @@ const inputSignInNewsLetter = document.querySelector('#checkbox2')
 const thankClosing = document.querySelector(".thank-closing")
 const submit = document.querySelector(".btn-submit")
 
+const ThanksAndClose = document.querySelector(".btn-close")
+
 /*
  +-+-+-+ +-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+
  |D|O|M| |E|l|e|m|e|n|t|s| |e|r|r|o|r|s|
@@ -68,6 +70,16 @@ cross.addEventListener('click', closeModal);
 
 // MailForm  validation using Regular Expressions
 const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+// reset modal
+
+
+const resetModal = () => {
+  modalbg.style.display = "none";
+  form.reset();
+}
+
+ThanksAndClose.addEventListener('click',resetModal);
 
 /*
  +-+-+ +-+-+-+-+ +-+-+-+-+-+-+-+
@@ -110,6 +122,9 @@ form.addEventListener('submit', (event) => {
 
 
   checkInput(userValue)
+  
+  
+  
 });
 
 /*
@@ -247,11 +262,16 @@ const checkInput = () => {
 
 
   // FORM SUBMIT
-  if (checkAllFields() == true) {
-    form.style.display = "none";
-    thankClosing.style.display = "block";
-    form.reset();
-  }
+  
+    if (checkAllFields() == true) {
+      form.style.display = "none";
+      thankClosing.style.display = "block";
+      ThanksAndClose.style.display = "block";
+      
+    }
+    
+  
+  
 
 
 }
