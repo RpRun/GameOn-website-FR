@@ -31,10 +31,10 @@ const inputQuantity = document.querySelector('#quantity')
 const inputLocations = document.getElementsByName('location');
 const inputAcceptTermsOfUses = document.querySelector('#checkbox1')
 const inputSignInNewsLetter = document.querySelector('#checkbox2')
-const thankClosing = document.querySelector(".thank-closing")
+const thankClosing = document.querySelector(".form-submitted")
 const submit = document.querySelector(".btn-submit")
 
-const ThanksAndClose = document.querySelector(".btn-close")
+const bTnClose = document.querySelector(".btn-close")
 
 /*
  +-+-+-+ +-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+
@@ -72,14 +72,33 @@ cross.addEventListener('click', closeModal);
 const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 // reset modal
+/*
+       AA      RRRR  EEEE V     V  OOO  III RRRR
+      A  A     R   R E    V     V O   O  I  R   R
+      AAAA     RRRR  EEE   V   V  O   O  I  RRRR
+      A  A     R R   E      V V   O   O  I  R R
+      A  A     R  RR EEEE    V     OOO  III R  RR
 
+
+      */
 
 const resetModal = () => {
-  modalbg.style.display = "none";
   form.reset();
+  modalbg.style.display = "none";
+  console.log('ça close ou ça reset');
+  
 }
 
-ThanksAndClose.addEventListener('click',resetModal);
+bTnClose.addEventListener('click',resetModal);
+/*
+       AA      RRRR  EEEE V     V  OOO  III RRRR
+      A  A     R   R E    V     V O   O  I  R   R
+      AAAA     RRRR  EEE   V   V  O   O  I  RRRR
+      A  A     R R   E      V V   O   O  I  R R
+      A  A     R  RR EEEE    V     OOO  III R  RR
+
+
+      */
 
 /*
  +-+-+ +-+-+-+-+ +-+-+-+-+-+-+-+
@@ -123,8 +142,7 @@ form.addEventListener('submit', (event) => {
 
   checkInput(userValue)
   
-  
-  
+   
 });
 
 /*
@@ -133,10 +151,10 @@ form.addEventListener('submit', (event) => {
  +-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+
 */
 const checkInput = () => {
-  // console.log('on a un truc là:', userValue);
+  console.log('on a un truc là:', userValue);
 
   // FirstName
-  function checkFirstName() {
+  const checkFirstName = () => {
     if (inputFirstName.value.length > 2) {
       errorFirst.style.display = 'none'
       inputFirstName.style.border = 'none'
@@ -266,12 +284,28 @@ const checkInput = () => {
     if (checkAllFields() == true) {
       form.style.display = "none";
       thankClosing.style.display = "block";
-      ThanksAndClose.style.display = "block";
+      /*
+       AA      RRRR  EEEE V     V  OOO  III RRRR
+      A  A     R   R E    V     V O   O  I  R   R
+      AAAA     RRRR  EEE   V   V  O   O  I  RRRR
+      A  A     R R   E      V V   O   O  I  R R
+      A  A     R  RR EEEE    V     OOO  III R  RR
+
+
+      */
+      // cross.addClass('btn-close')
+      /*
+       AA      RRRR  EEEE V     V  OOO  III RRRR
+      A  A     R   R E    V     V O   O  I  R   R
+      AAAA     RRRR  EEE   V   V  O   O  I  RRRR
+      A  A     R R   E      V V   O   O  I  R R
+      A  A     R  RR EEEE    V     OOO  III R  RR
+
+
+      */
+      console.log('oka ou pas ok')
       
     }
     
-  
-  
-
 
 }
