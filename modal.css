@@ -181,33 +181,6 @@ input {
   height: 48px;
 }
 
-.formData[data-error]::after {
-  content: attr(data-error);
-  font-size: 0.4em;
-  color: #e54858;
-  display: block;
-  margin-top: 7px;
-  margin-bottom: 7px;
-  text-align: right;
-  line-height: 0.3;
-  opacity: 0;
-  transition: 0.3s;
-}
-
-.formData[data-error-visible="true"]::after {
-  opacity: 1;
-}
-
-.formData[data-error-visible="true"] .text-control {
-  border: 2px solid #e54858;
-}
-
-/* 
-input[data-error]::after {
-    content: attr(data-error);
-    font-size: 0.4em;
-    color: red;
-} */
 .checkbox-label,
 .checkbox2-label {
   position: relative;
@@ -317,6 +290,7 @@ input[data-error]::after {
   border-radius: 7px;
   font-size: 1rem;
   padding: 12px 82px;
+  margin-top: 20px;
   color: #fff;
   cursor: pointer;
   border: 0;
@@ -371,7 +345,7 @@ input[data-error]::after {
 }
 
 /* Style items (options): */
-.select-items {
+ .select-items {
   position: absolute;
   background-color: #fff;
   top: 89%;
@@ -381,24 +355,10 @@ input[data-error]::after {
 }
 
 /* Hide the items when the select box is closed: */
-.select-hide {
+ .select-hide {
   display: none;
-}
+}  
 
-/*
-      __  _      _     _     _         __                                _                            _               _ _   _           _      _       __
-     / /\| |/\  | |   (_)   | |       / _|                              | |                          | |             (_) | | |         | |  /\| |/\   / /
-    / /\ ` ' /  | |__  _  __| | ___  | |_ ___  _ __ _ __ ___   __      _| |__   ___ _ __    ___ _   _| |__  _ __ ___  _| |_| |_ ___  __| |  \ ` ' /  / /
-   / /|_     _| | '_ \| |/ _` |/ _ \ |  _/ _ \| '__| '_ ` _ \  \ \ /\ / / '_ \ / _ \ '_ \  / __| | | | '_ \| '_ ` _ \| | __| __/ _ \/ _` | |_     _|/ /
-  / /  / , . \  | | | | | (_| |  __/ | || (_) | |  | | | | | |  \ V  V /| | | |  __/ | | | \__ \ |_| | |_) | | | | | | | |_| ||  __/ (_| |  / , . \/ /
- /_/   \/|_|\/  |_| |_|_|\__,_|\___| |_| \___/|_|  |_| |_| |_|   \_/\_/ |_| |_|\___|_| |_| |___/\__,_|_.__/|_| |_| |_|_|\__|\__\___|\__,_|  \/|_|\/_/
-
-
-*/
-.form-submitted {
-  display: none;
-  text-align: center;
-}
 
 .select-items div:hover,
 .same-as-selected {
@@ -412,7 +372,7 @@ input[data-error]::after {
 }
 
 .hero-section {
-  min-height: 52vh;
+  
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -491,20 +451,23 @@ input[data-error]::after {
   display: none;
 }
 
-/*
-      __  _    _    _ _     _        _   _                                                                                             _       __
-     / /\| |/\| |  | (_)   | |      | | | |                                                                                         /\| |/\   / /
-    / /\ ` ' /| |__| |_  __| | ___  | |_| |__   ___    ___ _ __ _ __ ___  _ __ ______ _ __ ___   ___  ___ ___  __ _  __ _  ___  ___ \ ` ' /  / /
-   / /|_     _|  __  | |/ _` |/ _ \ | __| '_ \ / _ \  / _ \ '__| '__/ _ \| '__|______| '_ ` _ \ / _ \/ __/ __|/ _` |/ _` |/ _ \/ __|_     _|/ /
-  / /  / , . \| |  | | | (_| |  __/ | |_| | | |  __/ |  __/ |  | | | (_) | |         | | | | | |  __/\__ \__ \ (_| | (_| |  __/\__ \/ , . \/ /
- /_/   \/|_|\/|_|  |_|_|\__,_|\___|  \__|_| |_|\___|  \___|_|  |_|  \___/|_|         |_| |_| |_|\___||___/___/\__,_|\__, |\___||___/\/|_|\/_/
-                                                                                                                     __/ |
-                                                                                                                    |___/
-*/
+/* hide the errors messages */
 .error {
   display: none;
   color: #fe142f;
   font-size: 0.8rem;
+}
+
+/* Thanks and close */
+
+/* Hide thankClosing until form is submitted */
+.form-submitted {
+  display: none;
+  text-align: center;
+}
+
+.form-submitted p {
+  margin-top: 60%;
 }
 
 footer {
