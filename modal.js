@@ -3,7 +3,6 @@
 //  |M|E|N|U| |H|A|N|D|L|E|R|
 //  +-+-+-+-+ +-+-+-+-+-+-+-+
 //*/
-
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -12,7 +11,6 @@ function editNav() {
     x.className = "topnav";
   }
 }
-
 /*
  +-+-+ +-+-+-+ +-+-+-+-+-+-+-+-+
  |/|/| |D|O|M| |E|l|e|m|e|n|t|s|
@@ -58,16 +56,13 @@ const launchModal = () => {
   openForm()
   closeThx()
 }
-
 const closeModal = () => {
   modalbg.style.display = "none";
- 
 }
 
 const openForm = () => {
   form.style.display = "block";
 }
-
 const closeForm = () => {
   form.style.display = "none";
 }
@@ -75,21 +70,12 @@ const closeForm = () => {
 const openThx = () => {
   thankClosing.style.display = "block";
 }
-
 const closeThx = () => {
-  thankClosing.style.display = "none;"
+  thankClosing.style.display = "none";
 }
 
 // MailForm  validation using Regular Expressions
 const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-
-
-// const resetModal = () => {
-//   form.reset();
-//   modalbg.style.display = "none";
-//   console.log('ça close ou ça reset');
-
-// }
 
 // FirstName
 const checkFirstName = () => {
@@ -97,23 +83,19 @@ const checkFirstName = () => {
     errorFirst.style.display = 'none'
     inputFirstName.style.border = 'none'
     return true;
-
   } else {
     errorFirst.style.display = 'block'
     inputFirstName.focus();
     inputFirstName.style.border = '2px solid #e54858'
     return false;
   }
-
 }
-
 // LastName
 const checkLastName = () => {
   if (inputLastName.value.length > 2) {
     errorLast.style.display = 'none'
     inputLastName.style.border = 'none'
     return true;
-
   } else {
     errorLast.style.display = 'block'
     inputLastName.focus();
@@ -121,14 +103,12 @@ const checkLastName = () => {
     return false;
   }
 }
-
 // MailForm 
 const checkEmail = () => {
   if (inputEmail.value.match(regex)) {
     errorEmail.style.display = 'none'
     inputEmail.style.border = 'none'
     return true;
-
   } else {
     errorEmail.style.display = 'block'
     inputEmail.focus();
@@ -136,14 +116,12 @@ const checkEmail = () => {
     return false
   }
 }
-
 // Birthdate validation 
 const checkDoB = () => {
   if (inputBirthDate.value.length > 0) {
     errorDoB.style.display = 'none'
     inputBirthDate.style.border = 'none'
     return true;
-
   } else {
     errorDoB.style.display = 'block'
     inputBirthDate.focus();
@@ -151,7 +129,6 @@ const checkDoB = () => {
     return false
   }
 }
-
 // Quantity of tournament participation validation
 const checkTournaments = () => {
   if ((inputQuantity.value == '') || (userValue.cities.length > inputQuantity.value)) {
@@ -159,14 +136,12 @@ const checkTournaments = () => {
     inputQuantity.focus();
     inputQuantity.style.border = '2px solid #e54858'
     return false
-
   } else {
     errorQuantity.style.display = 'none'
     inputQuantity.style.border = 'none'
     return true;
   }
 }
-
 // InputLocations (cities) error displayed only if there was a participation quantified before
 const checkLocation = () => {
   if ((userValue.cities.length < 1) && (inputQuantity.value > 0)) {
@@ -177,9 +152,7 @@ const checkLocation = () => {
     return true
   }
 }
-
 // inputTermsOfUses
-
 const checkCgu = () => {
   if (inputAcceptTermsOfUses.checked) {
     errorCgu.style.display = 'none'
@@ -214,7 +187,6 @@ form.addEventListener('submit', (event) => {
   // prevent form to be submitted 
   event.preventDefault();
 
-
   userValue.firstName = inputFirstName.value
   userValue.lastName = inputLastName.value
   userValue.email = inputEmail.value
@@ -240,6 +212,7 @@ form.addEventListener('submit', (event) => {
   checkInput(userValue)
 });
 
+
 /*
  +-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+
  |C|H|E|C|K|I|N|G| |E|R|R|O|R|S|
@@ -252,8 +225,8 @@ const checkInput = () => {
     form.reset();
     closeForm();
     openThx();
-    console.log("Formulaire Valide: \n\n", userValue);
+    console.log("Formulaire Valide : \n\n", userValue);
   } else {
-    console.log("Formulaire invalide: \n\n", userValue);
+    console.log("Formulaire invalide : \n\n", userValue);
   }
 }
