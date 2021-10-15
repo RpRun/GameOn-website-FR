@@ -55,6 +55,8 @@ const errorCgu = document.querySelector('.error-cgu')
 */
 const launchModal = () => {
   modalbg.style.display = "block";
+  openForm()
+  closeThx()
 }
 
 const closeModal = () => {
@@ -81,7 +83,6 @@ const closeThx = () => {
 const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 
-
 const resetModal = () => {
   form.reset();
   modalbg.style.display = "none";
@@ -101,7 +102,6 @@ const checkFirstName = () => {
     inputFirstName.focus();
     inputFirstName.style.border = '2px solid #e54858'
     return false;
-    // false est il necessaire et pourquoi?
   }
 
 }
@@ -250,7 +250,7 @@ const checkInput = () => {
 
   if (checkFirstName() && checkLastName() && checkEmail() && checkDoB() && checkTournaments() &&
     checkLocation() && checkCgu()) {
-    form.reset();
+    resetModal();
     closeForm();
     openThx();
     console.log("Formulaire Valide: \n\n", userValue);
