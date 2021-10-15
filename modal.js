@@ -61,6 +61,7 @@ const launchModal = () => {
 
 const closeModal = () => {
   modalbg.style.display = "none";
+ 
 }
 
 const openForm = () => {
@@ -83,12 +84,12 @@ const closeThx = () => {
 const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 
-const resetModal = () => {
-  form.reset();
-  modalbg.style.display = "none";
-  console.log('ça close ou ça reset');
+// const resetModal = () => {
+//   form.reset();
+//   modalbg.style.display = "none";
+//   console.log('ça close ou ça reset');
 
-}
+// }
 
 // FirstName
 const checkFirstName = () => {
@@ -202,7 +203,7 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 // add event click to launch closeModal()
 cross.addEventListener('click', closeModal);
 
-btnClose.addEventListener('click', resetModal);
+btnClose.addEventListener('click', closeModal);
 
 /*
  +-+-+ +-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+
@@ -245,12 +246,10 @@ form.addEventListener('submit', (event) => {
  +-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+
 */
 const checkInput = () => {
-
   // FORM SUBMIT
-
   if (checkFirstName() && checkLastName() && checkEmail() && checkDoB() && checkTournaments() &&
     checkLocation() && checkCgu()) {
-    resetModal();
+    form.reset();
     closeForm();
     openThx();
     console.log("Formulaire Valide: \n\n", userValue);
