@@ -373,7 +373,7 @@ input {
 }
 
 .hero-section {
-  
+  /* min-height: 52vh; */
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -401,6 +401,8 @@ input {
   right: -80px;
   top: 0;
 }
+
+
 
 .hero-content>* {
   position: relative;
