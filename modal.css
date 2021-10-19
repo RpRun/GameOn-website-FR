@@ -484,6 +484,11 @@ input {
   justify-content: center;
 }
 
+.btn-close {
+  position: absolute;
+  bottom: 0;
+}
+
 footer {
   padding-left: 2vw;
   padding-right: 2vw;
@@ -611,11 +616,6 @@ footer {
 
   .form-submitted {
     height: 80vh;
-  }
-
-  .btn-close {
-    position: absolute;
-    bottom: 0;
   }
 
 }
