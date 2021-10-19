@@ -465,22 +465,23 @@ input {
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  position: relative;
   margin-left: auto;
   margin-right: auto;
   height: 100%;
 }
-
+    
 .form-submitted p {
   display: flex;
   align-items: center;
-  min-height: 300px;
   padding: 1rem;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
   justify-content: center;
-  height: 100%;
 }
 
 footer {
@@ -602,6 +603,21 @@ footer {
   .hero-headline {
     font-size: 2.5rem;
   }
+
+  .wrapp-form-submitted {
+    height: 150vh;
+    max-height: 30%;
+}
+
+  .form-submitted {
+    height: 80vh;
+  }
+
+  .btn-close {
+    position: absolute;
+    bottom: 0;
+  }
+
 }
 
 
