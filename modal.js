@@ -29,7 +29,7 @@ const inputQuantity = document.querySelector('#quantity')
 const inputLocations = document.getElementsByName('location');
 const inputAcceptTermsOfUses = document.querySelector('#checkbox1')
 const inputSignInNewsLetter = document.querySelector('#checkbox2')
-const thankClosing = document.querySelector(".form-submitted")
+const thankClosing = document.querySelector(".wrapp-form-submitted")
 const submit = document.querySelector(".btn-submit")
 const btnClose = document.querySelector(".btn-close")
 
