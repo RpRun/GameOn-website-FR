@@ -11,7 +11,6 @@
 }
 
 /* Landing Page */
-
 body {
   margin: 0;
   display: flex;
@@ -41,7 +40,6 @@ img {
   float: left;
   margin-bottom: 1rem;
 }
-
 
 .main-navbar {
   float: right;
@@ -111,7 +109,6 @@ main {
 }
 
 /* Modal form */
-
 .button {
   background: #fe142f;
   margin-top: 0.5em;
@@ -347,7 +344,7 @@ input {
 }
 
 /* Style items (options): */
- .select-items {
+.select-items {
   position: absolute;
   background-color: #fff;
   top: 89%;
@@ -357,10 +354,9 @@ input {
 }
 
 /* Hide the items when the select box is closed: */
- .select-hide {
+.select-hide {
   display: none;
-}  
-
+}
 
 .select-items div:hover,
 .same-as-selected {
@@ -374,10 +370,6 @@ input {
 }
 
 .hero-section {
-  /* *************************************** */
-  /* min-height: 93vh; */
- /* *************************************** */
-
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -463,36 +455,20 @@ input {
   font-size: 0.8rem;
 }
 
-/* Thanks and close */
+/* thankClosing  (Hidden until form is submitted) */
 .wrapp-form-submitted {
   height: 150vh;
   max-height: 700px;
 }
 
-/* Hiden thankClosing until form is submitted */
 .form-submitted {
-  
-text-align: center;
-  
-/* POSITION: FIXED; */
-  
-/* left: 0; */
-  
-/* right: 0; */
-  
-/* top: 20%; */
-  
-display: flex;
-  
-flex-direction: column;
-  
-justify-content: space-between;
-  
-margin-left: auto;
-  
-margin-right: auto;
-  
-height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
 }
 
 .form-submitted p {
@@ -503,7 +479,6 @@ height: 100%;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  /* text-align: center; */
   justify-content: center;
   height: 100%;
 }
@@ -518,7 +493,7 @@ footer {
   main {
     margin: 0 20px 0;
   }
-  
+
   .topnav a {
     display: none;
   }
@@ -527,7 +502,6 @@ footer {
     float: right;
     display: block;
   }
-  
 
   .topnav.responsive {
     position: relative;
@@ -599,7 +573,6 @@ footer {
     margin: 25% auto;
     /* height: 85%; */
     display: flex;
-    
   }
 
   .copyrights {
@@ -620,9 +593,7 @@ footer {
   .topnav a.icon {
     float: right;
     display: block;
-    
   }
-  
 
   .header-logo img {
     padding: 1rem;
