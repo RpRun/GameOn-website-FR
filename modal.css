@@ -524,6 +524,8 @@ footer {
     position: absolute;
     right: 0;
     top: 0;
+    background-color: #ff0000;
+    color: #ffffff;
   }
 
   .topnav.responsive a {

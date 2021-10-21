@@ -75,7 +75,7 @@ const closeThx = () => {
 // MailForm  validation using Regular Expressions
 const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-// birthDate using regex
+// BirthDate using regex
 
 const regexBoD = /^((((0[1-9]|[12]\d|3[01])\/(0[13578]|10|12))|((0[1-9]|[12]\d|30)\/(0[469]|11))|((0[1-9]|1[0-9]|2[0-8]))\/02)\/(19\d\d|(200\d|201[0-5])))|(29\/02\/((?!1900)19([02468][048]|[13579][26])|(2000)|(2004)|(2008)|2012))+$/;
 
