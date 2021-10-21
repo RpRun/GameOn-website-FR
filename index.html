@@ -75,7 +75,9 @@
             <div class="error error-eMail">Veuillez renseigner une adresse mail valide.</div>
             <div class="formData">
               <label for="birthdate">Date de naissance</label><br>
-              <input class="text-control" type="date" id="birthdate" name="birthdate" /><br>
+              <!-- suppression type=date to match placeholder and regexDob-->
+              <input class="text-control"  id="birthdate" name="birthdate" placeholder="YYYY/MM/DD"/><br>
+               <!-- suppression type=date -->
             </div>
             <div class="error error-DoB">Veuillez renseigner votre date de naissance.</div>
             <div class="formData">
